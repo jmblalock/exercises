@@ -3,28 +3,32 @@ class Bookshelf {
 		this.favoriteBooks = [];
 	}
 
-	// TODO: define methods `addFavoriteBook(..)`
-	// and `printFavoriteBooks()`
-}
+	addFavoriteBook(bookName) {
+		if (!bookName.includes("Great")) {
+			this.favoriteBooks.push(bookName);
+		}
+	}
 
-function addFavoriteBook(bookName) {
-	if (!bookName.includes("Great")) {
-		favoriteBooks.push(bookName);
+	printFavoriteBooks() {
+		console.log(`Favorite Books: ${String(this.favoriteBooks.length)}`);
+		for (let bookName of this.favoriteBooks) {
+			console.log(bookName);
+		}
 	}
 }
 
-function printFavoriteBooks() {
-	console.log(`Favorite Books: ${favoriteBooks.length}`);
-	for (let bookName of favoriteBooks) {
-		console.log(bookName);
-	}
-}
-
-function loadBooks( /* .. */ ) {
+function loadBooks(bookshelf) {
 	// TODO: call fakeAjax( .. );
+	fakeAjax(BOOK_API, function onBooks(bookNames){
+		for (let bookName of bookNames) {
+			bookshelf.addFavoriteBook(bookName);
+		}
+		bookshelf.printFavoriteBooks();
+	});
 }
 
 var BOOK_API = "https://some.url/api";
+var myBooks = new Bookshelf();
 
 
 // ***********************
