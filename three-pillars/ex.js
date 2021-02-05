@@ -18,7 +18,6 @@ class Bookshelf {
 }
 
 function loadBooks(bookshelf) {
-	// TODO: call fakeAjax( .. );
 	fakeAjax(BOOK_API, function onBooks(bookNames){
 		for (let bookName of bookNames) {
 			bookshelf.addFavoriteBook(bookName);
@@ -31,9 +30,7 @@ var BOOK_API = "https://some.url/api";
 var myBooks = new Bookshelf();
 loadBooks(myBooks);
 
-
 // ***********************
-
 // NOTE: don't modify this function at all
 function fakeAjax(url,cb) {
 	setTimeout(function fakeLoadingDelay(){
