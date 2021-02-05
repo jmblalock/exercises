@@ -31,6 +31,7 @@ var myBooks = new Bookshelf();
 loadBooks(myBooks);
 
 // ***********************
+
 // NOTE: don't modify this function at all
 function fakeAjax(url,cb) {
 	setTimeout(function fakeLoadingDelay(){
