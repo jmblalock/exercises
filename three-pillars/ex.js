@@ -26,9 +26,18 @@ function loadBooks(bookshelf) {
 	});
 }
 
+function loadBooksV2(theBookshelf) {
+	fakeAjax(BOOK_API, (bookNames) => {
+		for (let bookName of bookNames) {
+			theBookshelf.addFavoriteBook(bookName);
+		}
+		theBookshelf.printFavoriteBooks();
+	});
+}
+
 var BOOK_API = "https://some.url/api";
 var myBooks = new Bookshelf();
-loadBooks(myBooks);
+loadBooksV2(myBooks);
 
 
 // ***********************
